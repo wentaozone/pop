@@ -16,7 +16,7 @@ static CGFloat const kPOPAnimationDurationDefault = 0.4;
 // progress threshold for computing done
 static CGFloat const kPOPProgressThreshold = 1e-6;
 
-static void interpolate(POPValueType valueType, NSUInteger count, const CGFloat *fromVec, const CGFloat *toVec, CGFloat *outVec, double p)
+static void interpolate(POPValueType valueType, NSUInteger count, const CGFloat *fromVec, const CGFloat *toVec, CGFloat *outVec, CGFloat p)
 {
   switch (valueType) {
     case kPOPValueInteger:
@@ -40,11 +40,11 @@ struct _POPBasicAnimationState : _POPPropertyAnimationState
   CFTimeInterval duration;
 
   _POPBasicAnimationState(id __unsafe_unretained anim) : _POPPropertyAnimationState(anim),
-  duration(kPOPAnimationDurationDefault),
-  timingFunction(nil)
+  timingFunction(nil),
+  timingControlPoints{0.},
+  duration(kPOPAnimationDurationDefault)
   {
     type = kPOPAnimationBasic;
-    memset(timingControlPoints, 0, sizeof(timingControlPoints));
   }
 
   bool isDone() {
@@ -56,7 +56,7 @@ struct _POPBasicAnimationState : _POPPropertyAnimationState
 
   void updatedTimingFunction()
   {
-    float vec[4] = {0., 0., 0., 0.};
+    float vec[4] = {0.};
     [timingFunction getControlPointAtIndex:1 values:&vec[0]];
     [timingFunction getControlPointAtIndex:2 values:&vec[2]];
     for (NSUInteger idx = 0; idx < POP_ARRAY_COUNT(vec); idx++) {
@@ -74,18 +74,14 @@ struct _POPBasicAnimationState : _POPPropertyAnimationState
     CFTimeInterval t = MIN(time - startTime, duration) / duration;
 
     // solve for normalized time, aka progresss [0, 1]
-    double p = POPTimingFunctionSolve(timingControlPoints, t, SOLVE_EPS(duration));
+    CGFloat p = POPTimingFunctionSolve(timingControlPoints, t, SOLVE_EPS(duration));
 
     // interpolate and advance
-    if (p != progress) {
-      interpolate(valueType, valueCount, fromVec->data(), toVec->data(), currentVec->data(), p);
-      progress = p;
-      return true;
-    }
-
+    interpolate(valueType, valueCount, fromVec->data(), toVec->data(), currentVec->data(), p);
+    progress = p;
     clampCurrentValue();
 
-    return false;
+    return true;
   }
 };
 

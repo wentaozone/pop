@@ -89,6 +89,9 @@
  */
 extern NSString * const kPOPLayerBackgroundColor;
 extern NSString * const kPOPLayerBounds;
+extern NSString * const kPOPLayerCornerRadius;
+extern NSString * const kPOPLayerBorderWidth;
+extern NSString * const kPOPLayerBorderColor;
 extern NSString * const kPOPLayerOpacity;
 extern NSString * const kPOPLayerPosition;
 extern NSString * const kPOPLayerPositionX;
@@ -149,12 +152,19 @@ extern NSString * const kPOPViewSize;
  */
 extern NSString * const kPOPScrollViewContentOffset;
 extern NSString * const kPOPScrollViewContentSize;
+extern NSString * const kPOPScrollViewZoomScale;
 
 /**
  Common UITableView property names.
  */
 extern NSString * const kPOPTableViewContentOffset;
 extern NSString * const kPOPTableViewContentSize;
+
+/**
+ Common UICollectionView property names.
+ */
+extern NSString * const kPOPCollectionViewContentOffset;
+extern NSString * const kPOPCollectionViewContentSize;
 
 /**
  Common UINavigationBar property names.
