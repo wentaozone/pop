@@ -95,7 +95,6 @@ static bool FBCompareTypeEncoding(const char *objctype, POPValueType type)
               || strcmp(objctype, @encode(NSRect)) == 0
 #endif
               );
-
     case kPOPValueEdgeInsets:
 #if TARGET_OS_IPHONE
       return strcmp(objctype, @encode(UIEdgeInsets)) == 0;
@@ -245,6 +244,7 @@ static VectorRef vectorize(id value, POPValueType type)
       break;
     case kPOPValueColor:
       vec = Vector::new_cg_color(POPCGColorWithColor(value));
+      break;
     default:
       break;
   }
