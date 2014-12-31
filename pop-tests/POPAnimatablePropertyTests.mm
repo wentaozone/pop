@@ -7,6 +7,7 @@
  of patent rights can be found in the PATENTS file in the same directory.
  */
 
+#define SENTEST_IGNORE_DEPRECATION_WARNING
 #import <SenTestingKit/SenTestingKit.h>
 
 #import <pop/POPAnimatableProperty.h>
@@ -53,6 +54,7 @@ static void assertPropertyEqual(id self, POPAnimatableProperty *prop1, POPAnimat
                      kPOPShapeLayerStrokeStart,
                      kPOPShapeLayerStrokeEnd,
                      kPOPShapeLayerStrokeColor,
+                     kPOPShapeLayerLineWidth,
 #if TARGET_OS_IPHONE
                      kPOPViewAlpha,
                      kPOPViewBackgroundColor,

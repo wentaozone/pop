@@ -336,8 +336,8 @@ static void stopAndCleanup(POPAnimator *self, POPAnimatorItemRef item, bool shou
   _displayLink.paused = YES;
   [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 #else
-  CVReturn ret = CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
-  ret = CVDisplayLinkSetOutputCallback(_displayLink, displayLinkCallback, (__bridge void *)self);
+  CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
+  CVDisplayLinkSetOutputCallback(_displayLink, displayLinkCallback, (__bridge void *)self);
 #endif
 
   _dict = POPDictionaryCreateMutableWeakPointerToStrongObject(5);
@@ -567,10 +567,14 @@ static void stopAndCleanup(POPAnimator *self, POPAnimatorItemRef item, bool shou
     if (existingAnim) {
       // unlock
       OSSpinLockUnlock(&_lock);
+
       if (existingAnim == anim) {
         return;
       }
       [self removeAnimationForObject:obj key:key cleanupDict:NO];
+        
+      // lock
+      OSSpinLockLock(&_lock);
     }
   }
   keyAnimationDict[key] = anim;

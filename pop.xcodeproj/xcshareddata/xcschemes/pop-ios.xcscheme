@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0610"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,37 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC191217162FB53A00E0CC76"
-               BuildableName = "libpop.a"
-               BlueprintName = "pop"
+               BlueprintIdentifier = "0B6BE74719FFD3B900762101"
+               BuildableName = "pop.framework"
+               BlueprintName = "pop-embedded"
                ReferencedContainer = "container:pop.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ECF01ED218C92B7F009E0AD1"
-               BuildableName = "pop-tests.octest"
-               BlueprintName = "pop-tests"
-               ReferencedContainer = "container:pop.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ECF01ED218C92B7F009E0AD1"
-               BuildableName = "pop-tests.octest"
-               BlueprintName = "pop-tests"
+               BlueprintIdentifier = "0B6BE75119FFD3B900762101"
+               BuildableName = "pop-iosTests.xctest"
+               BlueprintName = "pop-iosTests"
                ReferencedContainer = "container:pop.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -60,13 +46,22 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ECF01ED218C92B7F009E0AD1"
-               BuildableName = "pop-tests.octest"
-               BlueprintName = "pop-tests"
+               BlueprintIdentifier = "0B6BE75119FFD3B900762101"
+               BuildableName = "pop-iosTests.xctest"
+               BlueprintName = "pop-iosTests"
                ReferencedContainer = "container:pop.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0B6BE74719FFD3B900762101"
+            BuildableName = "pop.framework"
+            BlueprintName = "pop-embedded"
+            ReferencedContainer = "container:pop.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -77,6 +72,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0B6BE74719FFD3B900762101"
+            BuildableName = "pop.framework"
+            BlueprintName = "pop-embedded"
+            ReferencedContainer = "container:pop.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -86,6 +90,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0B6BE74719FFD3B900762101"
+            BuildableName = "pop.framework"
+            BlueprintName = "pop-embedded"
+            ReferencedContainer = "container:pop.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
